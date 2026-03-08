@@ -1,66 +1,87 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Link from 'next/link';
+import { ArrowRight, Cpu, Activity, History, Zap } from 'lucide-react';
+import styles from './page.module.css';
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>To get started, edit the page.tsx file.</h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className={styles.main}>
+      {/* Hero Section */}
+      <section className={styles.hero}>
+        <div className={styles.heroBackground}>
+          <div className={styles.glowBlob1} />
+          <div className={styles.glowBlob2} />
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className={styles.container}>
+          <div className={styles.heroContent}>
+            <div className={`glass-panel ${styles.badge} animate-fade-in-up`}>
+              <span className={styles.badgeDot}></span>
+              DevForge 4.0 MVP Engine
+            </div>
+
+            <h1 className={`${styles.title} animate-fade-in-up delay-100`}>
+              Decouple Business Logic from <br />
+              <span className="text-gradient">Application Code.</span>
+            </h1>
+
+            <p className={`${styles.subtitle} animate-fade-in-up delay-200`}>
+              LogicSnap is an enterprise-grade decision intelligence platform.
+              Dynamically deploy rigorous mathematical rules, advanced statistical tests,
+              and boolean evaluations directly to live data streams—with zero downtime.
+            </p>
+
+            <div className={`${styles.heroActions} animate-fade-in-up delay-300`}>
+              <Link href="/marketing" className="btn-primary">
+                Try Text-to-Rule AI <ArrowRight size={18} />
+              </Link>
+              <Link href="/developer" className="btn-secondary">
+                View Dependency Graph
+              </Link>
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Features Section */}
+      <section className={styles.features}>
+        <div className={styles.container}>
+          <div className={styles.grid}>
+
+            <div className={`glass-panel ${styles.card}`}>
+              <div className={styles.iconWrapper}>
+                <Cpu className={styles.icon} />
+              </div>
+              <h3>Statistical Math Engine</h3>
+              <p>Beyond simple discounts. Execute multi-variable linear algebra, moving averages, and Z-Score anomaly detection in real-time.</p>
+            </div>
+
+            <div className={`glass-panel ${styles.card}`}>
+              <div className={styles.iconWrapper}>
+                <Zap className={styles.icon} />
+              </div>
+              <h3>AI Text-to-Rule</h3>
+              <p>Empower marketing teams to type natural language requirements and instantly translate them into standardized, deployable JSON schemas.</p>
+            </div>
+
+            <div className={`glass-panel ${styles.card}`}>
+              <div className={styles.iconWrapper}>
+                <History className={styles.icon} />
+              </div>
+              <h3>Time-Travel Backtesting</h3>
+              <p>Simulate financial and operational impact against historical data streams before ever deploying a rule to production.</p>
+            </div>
+
+            <div className={`glass-panel ${styles.card}`}>
+              <div className={styles.iconWrapper}>
+                <Activity className={styles.icon} />
+              </div>
+              <h3>Blast Radius Governance</h3>
+              <p>Visually map overlapping rules and cross-system dependencies to mitigate risk and prevent unintended logic collisions.</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
